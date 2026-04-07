@@ -1,6 +1,6 @@
 # hyprlock-omarchy
 
-Minimal, clean [hyprlock](https://github.com/hyprwm/hyprlock/) configuration extracted from my personal setup.
+Minimal, clean [hyprlock](https://github.com/hyprwm/hyprlock/) configuration extracted from my personal [Omarchy](https://github.com/basecamp/omarchy) setup.
 
 This repo is intentionally small and self-contained. It only includes what is required to reproduce the lock screen, without pulling in a full dotfiles setup.
 
@@ -20,10 +20,13 @@ This repo is intentionally small and self-contained. It only includes what is re
 ## Requirements
 
 - `hyprlock`
-- ...
+- `jq` (required by `scripts/hyprlock-bar-right`)
+- `playerctl` (required by `scripts/waybar-now-playing`)
+- A media player exposing MPRIS controls for `playerctl` (the current scripts target `jellyfin-tui`)
+- A Nerd Font such as `JetBrainsMono Nerd Font` or change the font values in `hypr/hyprlock.conf`
+- A battery sysfs path like `/sys/class/power_supply/BAT1` for `scripts/hyprlock-battery-incidator` (adapt if your battery is under a different path)
 
-Make sure these are installed and available in your `$PATH`.
-Perhaps also make sure your `$PATH` in hyprland is consistent.
+Make sure these are installed and available in your `$PATH`. If you are not using Omarchy, adjust the power bindings and theme source paths before applying the config.
 
 ## Installation
 
