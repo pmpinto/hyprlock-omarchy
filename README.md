@@ -15,7 +15,7 @@ This repo is intentionally small and self-contained. It only includes what is re
 
 ## Preview
 
-IMAGE HERE
+![Preview](preview.png)
 
 ## Requirements
 
