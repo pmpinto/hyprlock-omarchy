@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ ! -d /sys/class/power_supply/BAT1 ]; then
+    exit 0
+fi
+
+cap=$(cat /sys/class/power_supply/BAT1/capacity)
+status=$(cat /sys/class/power_supply/BAT1/status)
+
+if [ "$status" = "Charging" ] || [ "$status" = "Full" ]; then
+    echo " $cap%"
+    exit 0
+fi
+
+case $cap in
+    100) echo "󰂅 $cap%" ;;
+    9*)  echo "󰁹 $cap%" ;;
+    8*)  echo "󰂂 $cap%" ;;
+    7*)  echo "󰂁 $cap%" ;;
+    6*)  echo "󰂀 $cap%" ;;
+    5*)  echo "󰁿 $cap%" ;;
+    4*)  echo "󰁾 $cap%" ;;
+    3*)  echo "󰁽 $cap%" ;;
+    2*)  echo "󰁼 $cap%" ;;
+    1*)  echo "󰁻 $cap%" ;;
+    0*)  echo "󰁺 $cap%" ;;
+esac
