@@ -1,0 +1,12 @@
+#!/bin/bash
+
+now_playing="<span size=\"smaller\" alpha=\"56%\">$(waybar-now-playing | jq -r '.text')</span>"
+battery="<span alpha=\"100%\">$(hyprlock-battery-indicator)</span>"
+
+if [ -n "$now_playing" ] && [ -n "$(hyprlock-battery-indicator)" ]; then
+  echo "$now_playing   $battery"
+elif [ -n "$now_playing" ]; then
+  echo "$now_playing"
+elif [ -n "$battery" ]; then
+  echo "$battery"
+fi
